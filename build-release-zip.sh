@@ -1,0 +1,98 @@
+#!/usr/bin/env bash
+# build-release-zip.sh
+#
+# Build the cowork-second-brain.zip artifact for Mac users to install/update
+# via Settings → Customize → Browse plugins.
+#
+# Usage:
+#   chmod +x build-release-zip.sh
+#   ./build-release-zip.sh
+#
+# Output:
+#   release/cowork-second-brain.zip
+
+set -euo pipefail
+
+REPO_ROOT="$(cd "$(dirname "$0")" && pwd)"
+PLUGIN_DIR="$REPO_ROOT/cowork-second-brain"
+RELEASE_DIR="$REPO_ROOT/release"
+ZIP_NAME="cowork-second-brain.zip"
+ZIP_PATH="$RELEASE_DIR/$ZIP_NAME"
+
+# Sanity checks
+if [[ ! -d "$PLUGIN_DIR" ]]; then
+  echo "ERROR: Plugin folder not found at $PLUGIN_DIR"
+  exit 1
+fi
+
+if [[ ! -f "$PLUGIN_DIR/.claude-plugin/plugin.json" ]]; then
+  echo "ERROR: plugin.json not found in $PLUGIN_DIR/.claude-plugin/"
+  exit 1
+fi
+
+VERSION=$(grep -E '"version"' "$PLUGIN_DIR/.claude-plugin/plugin.json" | head -1 | sed -E 's/.*"version"[[:space:]]*:[[:space:]]*"([^"]+)".*/\1/')
+
+if [[ -z "$VERSION" ]]; then
+  echo "ERROR: Could not parse version from plugin.json"
+  exit 1
+fi
+
+echo "→ Building cowork-second-brain v$VERSION zip"
+
+rm -rf "$RELEASE_DIR"
+mkdir -p "$RELEASE_DIR"
+
+# IMPORTANT: zip from INSIDE the plugin dir so the archive has plugin contents at the
+# zip root (.claude-plugin/plugin.json at root, no nested cowork-second-brain/ folder).
+# Cowork's "Customize → Browse plugins → upload" flow expects this flat layout.
+cd "$PLUGIN_DIR"
+
+zip -r "$ZIP_PATH" . \
+  -x "*.DS_Store" \
+  -x "**/.DS_Store" \
+  -x "**/._*" \
+  -x "*.swp" \
+  -x "**/.git/*" \
+  -x "**/node_modules/*" \
+  >/dev/null
+
+echo ""
+echo "→ Verifying zip contents..."
+
+REQUIRED_FILES=(
+  ".claude-plugin/plugin.json"
+  "skills/onboard-second-brain/SKILL.md"
+  "skills/second-brain/SKILL.md"
+)
+
+MISSING=0
+ZIP_LISTING=$(unzip -l "$ZIP_PATH" 2>/dev/null)
+for f in "${REQUIRED_FILES[@]}"; do
+  if echo "$ZIP_LISTING" | grep -q "$f"; then
+    echo "  ✓ $f"
+  else
+    echo "  ✗ MISSING: $f"
+    MISSING=$((MISSING + 1))
+  fi
+done
+
+if [[ $MISSING -gt 0 ]]; then
+  echo ""
+  echo "ERROR: $MISSING required file(s) missing from zip. Aborting."
+  rm -f "$ZIP_PATH"
+  exit 1
+fi
+
+ZIP_SIZE=$(du -h "$ZIP_PATH" | cut -f1)
+FILE_COUNT=$(unzip -l "$ZIP_PATH" 2>/dev/null | tail -1 | awk '{print $2}')
+
+echo ""
+echo "✓ Built: $ZIP_PATH"
+echo "  Version: v$VERSION"
+echo "  Size: $ZIP_SIZE"
+echo "  Files: $FILE_COUNT"
+echo ""
+echo "Next steps:"
+echo "  1. Attach $ZIP_NAME to the GitHub release for v$VERSION"
+echo "  2. Reference RELEASE-v$VERSION.md as the release notes"
+echo "  3. Mac users download → Settings → Customize → Browse plugins → upload"

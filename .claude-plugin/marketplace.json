@@ -1,0 +1,13 @@
+{
+  "name": "cowork-second-brain",
+  "owner": {
+    "name": "Nuno Tavares"
+  },
+  "plugins": [
+    {
+      "name": "cowork-second-brain",
+      "source": "./cowork-second-brain",
+      "description": "Build a local-first second brain in Obsidian and connect it to Claude Cowork. Multi-vault aware. No MCP setup, no API keys — just point at your vault folder. Three canonical prompts (build / update / health-check) and a weekly rhythm that compounds for years."
+    }
+  ]
+}

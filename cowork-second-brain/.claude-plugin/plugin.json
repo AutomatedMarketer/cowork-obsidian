@@ -1,0 +1,8 @@
+{
+  "name": "cowork-second-brain",
+  "version": "0.1.0",
+  "description": "Build a local-first Obsidian second brain and wire it into Claude Cowork. Multi-vault aware. No MCP, no API keys, no Local REST API plugin — Cowork reads your vault files directly via a safe-zones carve-out. Three canonical prompts (build / update / health-check) plus a weekly rhythm. Built by Nuno Tavares of Automated Marketer.",
+  "author": {
+    "name": "Nuno Tavares"
+  }
+}
