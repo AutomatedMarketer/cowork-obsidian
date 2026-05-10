@@ -1,6 +1,6 @@
 # Phase 4 — Wire Cowork to Vault
 
-**Goal:** Add the vault path to `cowork-aibos`'s `safe-zones.md` as a `/second-brain`-scoped carve-out. Test the wiring by reading a note from the vault. No MCP, no API key, no Local REST API plugin.
+**Goal:** Add the vault path to `cowork-ai-os`'s `safe-zones.md` as a `/second-brain`-scoped carve-out. Test the wiring by reading a note from the vault. No MCP, no API key, no Local REST API plugin.
 
 **Time:** ~5 minutes.
 
@@ -8,7 +8,7 @@
 
 ## Script — what to say (in voice)
 
-> *"Phase 4 is the connectivity layer. After this phase, I can read and write into your vault folder when you ask the `/second-brain` skill to do something — but `/tidy-downloads` (from cowork-aibos) won't touch the vault, and no other skill writes there either. Scoped permission, not blanket access.*
+> *"Phase 4 is the connectivity layer. After this phase, I can read and write into your vault folder when you ask the `/second-brain` skill to do something — but `/tidy-downloads` (from cowork-ai-os) won't touch the vault, and no other skill writes there either. Scoped permission, not blanket access.*
 >
 > *The mechanism is simple: we add an entry to your `safe-zones.md` that says 'this path is allow-listed for the /second-brain skill ONLY.' That's the entire wiring.*
 >
@@ -61,9 +61,9 @@ User skipped `/onboard-file-organization` so there's no full safe-zones file. Cr
 ```markdown
 # Safe Zones — Skill-Specific Allow-Zones (Minimal)
 
-This file exists in minimal form because the user installed `cowork-second-brain` without first running `/onboard-file-organization`. It contains ONLY the carve-outs needed for `/second-brain` to operate. The full safe-zones model (allow-list, forbidden list, "never delete" rule, etc.) is documented at:
+This file exists in minimal form because the user installed `cowork-obsidian` without first running `/onboard-file-organization`. It contains ONLY the carve-outs needed for `/second-brain` to operate. The full safe-zones model (allow-list, forbidden list, "never delete" rule, etc.) is documented at:
 
-https://github.com/AutomatedMarketer/cowork-aibos — run `/onboard-file-organization` to install it.
+https://github.com/AutomatedMarketer/cowork-ai-os — run `/onboard-file-organization` to install it.
 
 ---
 

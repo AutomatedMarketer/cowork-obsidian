@@ -6,6 +6,16 @@
 
 ---
 
+> **⚠️ Mode gate (v0.2.0):** This phase **only runs in `scaffold` mode** — the user chose "create new vault" in Phase 0.5.
+>
+> - If `vault_mode_default: external` → user already connected to an existing vault. Skip Phase 3 entirely.
+> - If `vault_mode_default: overlay` → the overlay folders were already created in Phase 0.5 Step 6. Skip Phase 3 unless the user explicitly asks to also seed `about-me/` content (which is unusual for overlay mode).
+> - If `vault_mode_default: scaffold` → run this phase.
+>
+> Read the state file to confirm before running. If the mode is anything other than `scaffold`, advance to Phase 4.
+
+---
+
 ## Script — what to say (in voice)
 
 > *"Phase 3 builds the empty shell. By the end of this phase, your first vault has the right folder structure, your `about-me/` files are inside it, and Obsidian is pointed at it.*

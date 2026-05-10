@@ -77,7 +77,7 @@ Use `templates/vaults.template.md` as the structure. Fill in real values from th
 The file should have:
 
 1. **H1**: "Vaults — Second Brain Configuration"
-2. **Intro**: *"The `/second-brain` skill loads this file to discover where the user's vaults live and what life areas each one contains. Edit only when adding/removing vaults or life areas. Cross-references `cowork-aibos`'s `safe-zones.md` for permission scoping."*
+2. **Intro**: *"The `/second-brain` skill loads this file to discover where the user's vaults live and what life areas each one contains. Edit only when adding/removing vaults or life areas. Cross-references `cowork-ai-os`'s `safe-zones.md` for permission scoping."*
 3. **H2 "Vaults"** — one subsection per configured vault:
    - Name
    - Path (placeholder until Phase 3 fills it in)

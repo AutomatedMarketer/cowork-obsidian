@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # build-release-zip.sh
 #
-# Build the cowork-second-brain.zip artifact for Mac users to install/update
+# Build the cowork-obsidian.zip artifact for Mac users to install/update
 # via Settings → Customize → Browse plugins.
 #
 # Usage:
@@ -9,14 +9,14 @@
 #   ./build-release-zip.sh
 #
 # Output:
-#   release/cowork-second-brain.zip
+#   release/cowork-obsidian.zip
 
 set -euo pipefail
 
 REPO_ROOT="$(cd "$(dirname "$0")" && pwd)"
-PLUGIN_DIR="$REPO_ROOT/cowork-second-brain"
+PLUGIN_DIR="$REPO_ROOT/cowork-obsidian"
 RELEASE_DIR="$REPO_ROOT/release"
-ZIP_NAME="cowork-second-brain.zip"
+ZIP_NAME="cowork-obsidian.zip"
 ZIP_PATH="$RELEASE_DIR/$ZIP_NAME"
 
 # Sanity checks
@@ -37,13 +37,13 @@ if [[ -z "$VERSION" ]]; then
   exit 1
 fi
 
-echo "→ Building cowork-second-brain v$VERSION zip"
+echo "→ Building cowork-obsidian v$VERSION zip"
 
 rm -rf "$RELEASE_DIR"
 mkdir -p "$RELEASE_DIR"
 
 # IMPORTANT: zip from INSIDE the plugin dir so the archive has plugin contents at the
-# zip root (.claude-plugin/plugin.json at root, no nested cowork-second-brain/ folder).
+# zip root (.claude-plugin/plugin.json at root, no nested cowork-obsidian/ folder).
 # Cowork's "Customize → Browse plugins → upload" flow expects this flat layout.
 cd "$PLUGIN_DIR"
 

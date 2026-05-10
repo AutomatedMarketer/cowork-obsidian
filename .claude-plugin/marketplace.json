@@ -1,13 +1,13 @@
 {
-  "name": "cowork-second-brain",
+  "name": "cowork-obsidian",
   "owner": {
     "name": "Nuno Tavares"
   },
   "plugins": [
     {
-      "name": "cowork-second-brain",
-      "source": "./cowork-second-brain",
-      "description": "Build a local-first second brain in Obsidian and connect it to Claude Cowork. Multi-vault aware. No MCP setup, no API keys — just point at your vault folder. Three canonical prompts (build / update / health-check) and a weekly rhythm that compounds for years."
+      "name": "cowork-obsidian",
+      "source": "./cowork-obsidian",
+      "description": "Wire Claude Cowork to a local Obsidian vault — connect to an existing vault or build a new one. Auto-detects existing vaults. Three modes (external / overlay / scaffold). Sync across machines (Obsidian Sync, Syncthing, or Git/GitHub). Optional Claude Desktop MCP. Multi-vault aware. Three canonical prompts (build / update / health-check) and a weekly rhythm that compounds for years."
     }
   ]
 }

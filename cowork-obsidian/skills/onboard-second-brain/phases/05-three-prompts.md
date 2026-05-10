@@ -1,8 +1,18 @@
 # Phase 5 — The Three Canonical Prompts
 
-**Goal:** Run `build` for the first time on the seeded life area, explain `update` and `health-check` for future use, establish a weekly rhythm, and write the first wiki pages. By the end, the vault has real content the user can read in Obsidian.
+**Goal:** Run `build` for the first time, explain `update` and `health-check` for future use, establish a weekly rhythm, and write the first wiki pages. By the end, the vault has real content the user can read in Obsidian.
 
 **Time:** ~30 minutes.
+
+---
+
+> **Mode-aware (v0.2.0):** Read the active vault's `mode` field from `vaults.md` first. Phase 5 behaves differently per mode:
+>
+> | Mode | First-run behavior |
+> |---|---|
+> | `scaffold` | Run `build` against the seeded life area's `raw/` (Phase 3 seeded 2–3 notes). Standard v0.1.0 flow. |
+> | `overlay` | Run `build` against the overlay sub-folder's `raw/`. If empty (no seed in Phase 0.5), interview the user for 2–3 raw notes first, then build. |
+> | `external` | The vault has the user's existing structure. Ask the user: "Which folder holds your raw input for this build? Where should I write the wiki output?" Default suggestion: `<chosen-input>/wiki/` as a sibling. **Every write asks permission per-page.** Don't auto-create folders. |
 
 ---
 
@@ -88,7 +98,7 @@ Ask the user:
 >
 > *Or you can run it ad-hoc whenever you've added enough raw notes. No schedule needed if you don't want one."*
 
-Capture the user's preference. Optionally, schedule a recurring task (similar to how cowork-aibos schedules the morning brief and weekly tidy):
+Capture the user's preference. Optionally, schedule a recurring task (similar to how cowork-ai-os schedules the morning brief and weekly tidy):
 
 > *"Want me to schedule a weekly reminder that fires [day] [time]? It writes a 'TIME TO UPDATE' entry in `projects/second-brain/memory.md`, optionally drafts an email reminder to yourself in Gmail Drafts. The reminder is just a reminder — it doesn't run `update` automatically. You decide when to actually run it."*
 
