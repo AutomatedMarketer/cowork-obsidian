@@ -1,7 +1,7 @@
 # cowork-obsidian
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](./LICENSE)
-[![Version](https://img.shields.io/badge/version-0.2.0-brightgreen.svg?style=flat-square)](./CHANGELOG.md)
+[![Version](https://img.shields.io/badge/version-0.3.0-brightgreen.svg?style=flat-square)](./CHANGELOG.md)
 [![Platform: Mac · Windows · Linux](https://img.shields.io/badge/platform-Mac%20%C2%B7%20Windows%20%C2%B7%20Linux-blue.svg?style=flat-square)](#install)
 [![Built for Claude Cowork](https://img.shields.io/badge/built%20for-Claude%20Cowork-7C3AED.svg?style=flat-square)](https://claude.com/product/claude-code)
 
@@ -22,6 +22,20 @@ Built by [Nuno Tavares](https://nunomtavares.com) for [VCInc](https://vcinc.com)
 ```
 
 Mac users via Claude Desktop's plugin uploader: see [Install (Mac)](#mac) below.
+
+---
+
+## 🎯 The three commands you'll use forever
+
+After install, Cowork has **three new slash commands**. Memorize these — they're the whole "app":
+
+| Command | What it does | When |
+|---|---|---|
+| **`/onboard-second-brain`** *(or `start onboarding`)* | First-time setup. 8-phase wizard. Auto-detects existing vaults or scaffolds fresh ones. Wires Cowork. Optional sync setup. Optional Claude Desktop MCP. | **Once.** |
+| **`/open-vault`** *(or `open my vault`)* | Daily-driver. Launches Obsidian to your vault AND preps the Cowork session. Reports vault status (last activity, new raw notes, what to do next). | **Every session.** |
+| **`/second-brain`** *(or `update my wiki`, `build my [area]`)* | Operational skill. Four operations: `build`, `update`, `health-check`, `fold-back`. Mode-aware. The skill knows the prompts — you just invoke. | **Weekly+.** |
+
+That's the whole surface. Three commands. The lessons in [`docs/sops/`](./cowork-obsidian/docs/sops/) walk you through using them.
 
 ---
 
@@ -92,7 +106,7 @@ There are two different Claude products. They connect to your vault two differen
 
 ## The install at a glance
 
-8 phases, ~70 minutes, fully pause-friendly. State persists at `_aibos/state-second-brain.md`. Resume any time with `/onboard-second-brain`.
+8 phases, ~70 minutes, fully pause-friendly (less if you're connecting to an existing vault). State persists at `_aibos/state-second-brain.md`. Resume any time with `/onboard-second-brain` (or `start onboarding`).
 
 | # | Phase | Time |
 |---|---|---|
@@ -108,19 +122,18 @@ There are two different Claude products. They connect to your vault two differen
 
 ---
 
-## The three canonical prompts
+## The four operations of `/second-brain`
 
-After install, you'll use these forever:
+After install, you'll use these forever via the `/second-brain` skill:
 
-- **`/second-brain build [life-area]`** — first-pass wiki construction from raw notes. Run when wiki/ is empty or sparse.
+- **`/second-brain build [life-area]`** — first-pass wiki construction from raw notes. Run once per area.
 - **`/second-brain update [life-area]`** — fold new raw notes into the existing wiki. Run weekly.
 - **`/second-brain health-check [life-area]`** — flag contradictions, missing topics, stale pages. Run monthly.
+- **`/second-brain fold-back [life-area]`** — absorb finished outputs back into the wiki. Run quarterly.
 
-Plus an optional ad-hoc:
+The skill is **mode-aware** — operates silently in `scaffold`/`overlay` mode, asks per-write in `external` mode (so we never reorganize a vault you already had).
 
-- **`/second-brain fold-back [output filename]`** — absorb the ideas in a finished output back into the wiki.
-
-See [the prompts reference](./cowork-obsidian/skills/onboard-second-brain/templates/prompts.template.md) for full behavior.
+See [the prompts reference](./cowork-obsidian/skills/onboard-second-brain/templates/prompts.template.md) for the underlying templates (you don't paste these — the skill runs them internally).
 
 ---
 
@@ -249,6 +262,8 @@ Why VCInc cohort members and other solopreneurs / consultants set this up:
 6. **Multi-role operators** — work + business + health + personal in one indexed system
 
 Full case studies (~150 words each, with exact `raw/wiki/output` flow per persona): [docs/use-cases.md](./cowork-obsidian/docs/use-cases.md)
+
+For **concrete daily / weekly / monthly workflows per role** + the second-brain thinkers who informed the model (Julie Chenell, Tiago Forte, Andy Matuschak) + common first-month pitfalls: see [docs/sops/SOP-C04-05.md](./cowork-obsidian/docs/sops/SOP-C04-05.md) — Lesson 5 of the cohort SOPs.
 
 The `/second-brain` skill itself can ask you which persona fits best and tailor its first-run suggestions to your role. Just run `/second-brain` with no arguments after onboarding.
 

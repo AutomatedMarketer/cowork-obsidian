@@ -7,7 +7,7 @@
     {
       "name": "cowork-obsidian",
       "source": "./cowork-obsidian",
-      "description": "Wire Claude Cowork to a local Obsidian vault — connect to an existing vault or build a new one. Auto-detects existing vaults. Three modes (external / overlay / scaffold). Sync across machines (Obsidian Sync, Syncthing, or Git/GitHub). Optional Claude Desktop MCP. Multi-vault aware. Three canonical prompts (build / update / health-check) and a weekly rhythm that compounds for years."
+      "description": "Wire Claude Cowork to a local Obsidian vault. Three skills install: /onboard-second-brain (one-time setup wizard), /open-vault (daily-driver — opens Obsidian + preps Cowork session), /second-brain (build / update / health-check / fold-back, mode-aware). Auto-detects existing vaults. Three modes (external / overlay / scaffold). Sync via Obsidian Sync, Syncthing, or Git/GitHub. Optional Claude Desktop MCP. Multi-vault aware. A knowledge base that compounds for years."
     }
   ]
 }

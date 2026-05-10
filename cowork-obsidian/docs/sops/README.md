@@ -1,6 +1,6 @@
-# Project 04 SOPs (v0.2.0)
+# Project 04 SOPs (v0.3.0)
 
-Standard Operating Procedures for **VCInc cohort students** going through Project 04 — Second Brain in Obsidian (cowork-obsidian plugin v0.2.0).
+Standard Operating Procedures for **VCInc cohort students** going through Project 04 — Second Brain in Obsidian (cowork-obsidian plugin v0.3.0).
 
 Each lesson has both formats:
 - **`SOP-CXX-NN.md`** — Markdown source (canonical, version-controlled, edit here)
@@ -8,31 +8,33 @@ Each lesson has both formats:
 
 ---
 
-## The 5 SOPs
+## The 6 docs (overview + 5 lessons)
 
 | File | Title | Time | When to use |
 |---|---|---|---|
 | [SOP-C04-00](./SOP-C04-00.md) | Project 04: Your Second Brain in Obsidian (Overview) | 10 min read | Conceptual primer. Read first. |
 | [SOP-C04-01](./SOP-C04-01.md) | Lesson 1: Connect or Create Your Vault | 5–40 min | Auto-detect existing vault OR scaffold a fresh one. Wire to Cowork. |
-| [SOP-C04-02](./SOP-C04-02.md) | Lesson 2: The Three Prompts That Run Your Second Brain | 30 min | Run `build`, `update`, `health-check` for the first time. Mode-aware. |
+| [SOP-C04-02](./SOP-C04-02.md) | Lesson 2: The Three Operations of `/second-brain` | ~15 min | Run `/second-brain build`, `update`, `health-check` once. Skill-first. |
 | [SOP-C04-03](./SOP-C04-03.md) | Lesson 3: Sync Across Machines (+ Optional Desktop MCP) | 15–35 min | Pick Obsidian Sync, Syncthing, or Git/GitHub. Optional Desktop MCP. |
-| [SOP-C04-04](./SOP-C04-04.md) | Lesson 4: The Weekly Rhythm and the Custom Skill | 30 min | Install slash-command skill, set calendar reminders, write `My Vault System.md`. |
+| [SOP-C04-04](./SOP-C04-04.md) | Lesson 4: The Weekly Rhythm + `/open-vault` Daily Driver | ~20 min | Calendar reminders, home indexes, golden output, `My Vault System.md`. |
+| [SOP-C04-05](./SOP-C04-05.md) | Lesson 5: Use Cases & Daily Workflow | ~15 min read | The "now what?" guide. 6 case studies by role + concrete workflow. |
 
-Total time: 100–125 minutes if scaffolding fresh, less if connecting to an existing vault.
+Total time: ~90 min hands-on if scaffolding fresh, less if connecting to an existing vault.
 
 ---
 
-## What changed from v0.1.0
+## What changed from v0.1.0 / v0.2.0
 
-The original Project 04 SOPs were 4 files (overview + 3 lessons). v0.2.0 reorganizes to 5 files (overview + 4 lessons), with a new **Lesson 3 — Sync** that didn't exist before.
+The original Project 04 SOPs (v0.1.0) were 4 files. v0.3.0 reorganizes to 6 files: overview + 5 lessons. Two new lessons (Sync, Use Cases) and a major rewrite of Lessons 2 + 4 to be skill-first instead of paste-the-prompt.
 
-| v0.1.0 | v0.2.0 | Change |
+| Original (v0.1.0) | v0.3.0 | Change |
 |---|---|---|
-| SOP-C04-00 (Overview) | SOP-C04-00 (Overview, refreshed) | Refreshed for the renamed plugin (`cowork-obsidian`), three vault modes, soft prereq, 5-lesson map |
+| SOP-C04-00 (Overview) | SOP-C04-00 (Overview) | Refreshed: new plugin name, three vault modes, soft prereq, 6-doc map, the 3 skills the plugin installs |
 | SOP-C04-01 (Install + Build Vault) | SOP-C04-01 (Connect or Create) | Now covers BOTH the "connect existing vault" branch AND the "scaffold fresh vault" branch |
-| SOP-C04-02 (Three Prompts) | SOP-C04-02 (Three Prompts, mode-aware) | Updated for mode awareness (`scaffold`, `overlay`, `external`) and the new use-case picker |
-| — | SOP-C04-03 (Sync + Desktop MCP) **NEW** | Brand new lesson covering all three sync options + the optional GoHighLevel-trap-aware Desktop MCP setup |
-| SOP-C04-03 (Weekly Rhythm) | SOP-C04-04 (Weekly Rhythm, refreshed) | Same content, refreshed for v0.2.0 plugin name + mode-aware skill |
+| SOP-C04-02 (Three Prompts — manual paste) | SOP-C04-02 (Three Operations of `/second-brain` — skill-first) | **Major rewrite.** v0.1.0 had students paste a 200-word prompt manually. v0.3.0 uses the `/second-brain` skill the plugin installs. ~15 min vs ~30 min. Manual prompt templates moved to an appendix for reference only. |
+| — | SOP-C04-03 (Sync + Desktop MCP) **NEW in v0.2.0** | Brand new lesson covering all three sync options + the optional GoHighLevel-trap-aware Desktop MCP setup |
+| SOP-C04-03 (Weekly Rhythm + Custom Skill) | SOP-C04-04 (Weekly Rhythm + `/open-vault` Daily Driver) | **Major rewrite.** v0.1.0 had students BUILD a custom "Vault Wiki Workflow" skill via Skill Creator. v0.3.0 drops that — the plugin already has `/second-brain` and now adds `/open-vault` as the daily-driver. ~20 min vs ~30 min. |
+| — | SOP-C04-05 (Use Cases & Daily Workflow) **NEW in v0.3.0** | Read-only "now what?" guide. 6 case studies by role (coach, agency owner, course creator, consultant, writer, multi-business operator) + references to second-brain thinkers (Julie Chenell, Tiago Forte, Andy Matuschak) + concrete daily/weekly/monthly workflow examples. |
 
 ---
 
@@ -51,7 +53,7 @@ Then run:
 ```python
 import pypandoc
 
-sops = ['SOP-C04-00', 'SOP-C04-01', 'SOP-C04-02', 'SOP-C04-03', 'SOP-C04-04']
+sops = ['SOP-C04-00', 'SOP-C04-01', 'SOP-C04-02', 'SOP-C04-03', 'SOP-C04-04', 'SOP-C04-05']
 
 for sop in sops:
     pypandoc.convert_file(

@@ -7,6 +7,36 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [0.3.0] — 2026-05-09
+
+### Added
+
+- **New skill: `/open-vault`** — daily-driver session starter. Launches Obsidian to the configured vault via the `obsidian://open?vault=<name>` URL scheme AND preps the Cowork session: loads `vaults.md`, reports vault status (mode, last activity, new raw notes since last update), offers a next-step menu (build / update / health-check / fold-back / browse). The "every time you sit down to work on your second brain" command. Triggers on `/open-vault`, `open my vault`, `let me work on my second brain`, `start second brain session`.
+- **Natural-language triggers** added across all 3 skills so beginners don't need to memorize slash commands. `/onboard-second-brain` now also fires on "start onboarding"/"start second brain"/"begin second brain setup". `/second-brain` adds "refresh my wiki", "audit my second brain", "run my second brain", "process my raw notes".
+- **Lesson 5 SOP — Use Cases & Daily Workflow** at `cowork-obsidian/docs/sops/SOP-C04-05.md`. Read-only "now what?" guide: 6 case studies by role (coach / agency / course creator / consultant / writer / multi-business operator), references to second-brain thinkers (Julie Chenell, Tiago Forte / PARA, Andy Matuschak), full daily / weekly / monthly / quarterly workflow with exact commands, a real session example, and 7 first-month pitfalls.
+
+### Changed
+
+- **Plugin description** updated everywhere to highlight the **3 skills** the plugin installs: `/onboard-second-brain`, `/open-vault`, `/second-brain`. Beginner-friendly framing — *"three commands, that's the whole app."*
+- **SOP-C04-02 rewritten skill-first.** v0.1.0/v0.2.0 had students paste a 200-word manual prompt to run build/update/health-check. v0.3.0 just uses the `/second-brain` skill the plugin installs — students invoke `/second-brain build coaching` and the skill does the work. Manual prompt templates moved to an appendix for reference only. Lesson time: ~15 min (was 30).
+- **SOP-C04-04 rewritten — dropped the custom-skill build.** v0.1.0 had students build a "Vault Wiki Workflow" custom skill via Skill Creator. The plugin already provides `/second-brain` (and now `/open-vault`) — building another skill is duplicate work. New Lesson 4 focuses on calendar reminders, home indexes, golden output, `My Vault System.md`, and establishing `/open-vault` as the daily-startup pattern. Lesson time: ~20 min (was 30).
+- **SOP-C04-00 (Overview)** updated to list all 3 skills explicitly + 6-doc map (overview + 5 lessons).
+- **SOP-C04-01 (Lesson 1)** mentions `/open-vault` as the daily-driver users will adopt after onboarding.
+
+### Why this matters
+
+In v0.1.0/v0.2.0 the SOPs taught the *manual* approach (paste prompts, build your own skill) because the original SOPs were authored before the plugin existed. v0.3.0 reconciles the SOPs with the plugin — the plugin already does the work, the SOPs now teach using it. Beginner-friendly. Less duplicate effort. Mirrors the `cowork-ai-os` install pattern (install once, get a small set of skills the plugin owns).
+
+### Migration from v0.2.0
+
+- **Plugin install command unchanged:** `/plugin install cowork-obsidian@cowork-obsidian` (still works on the existing GitHub repo).
+- **Existing slash commands preserved:** `/onboard-second-brain` and `/second-brain` work exactly as before (with expanded natural-language triggers).
+- **New `/open-vault` skill auto-installs** when the plugin updates. No user action needed.
+- **`vaults.md` and state file format unchanged** from v0.2.0. No migration required.
+- **SOPs renumbered:** v0.2.0 had 5 SOPs (00–04). v0.3.0 has 6 (00–05). Old SOP files retained, content updated; new SOP-C04-05 added.
+
+---
+
 ## [0.2.0] — 2026-05-09
 
 ### Added

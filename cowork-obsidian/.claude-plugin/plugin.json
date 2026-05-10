@@ -1,7 +1,7 @@
 {
   "name": "cowork-obsidian",
-  "version": "0.2.0",
-  "description": "Wire Claude Cowork to a local Obsidian vault. Auto-detect existing vaults or scaffold a new one. Three modes (external / overlay / scaffold). Sync across machines via Obsidian Sync, Syncthing, or Git/GitHub. Optional Claude Desktop MCP path. Multi-vault aware. Three canonical prompts (build / update / health-check) plus a weekly rhythm. Built by Nuno Tavares of Automated Marketer.",
+  "version": "0.3.0",
+  "description": "Wire Claude Cowork to a local Obsidian vault. Three skills: /onboard-second-brain (install wizard), /open-vault (daily-driver session starter), /second-brain (operational build/update/health-check). Auto-detect existing vaults or scaffold a new one. Three modes (external / overlay / scaffold). Sync across machines via Obsidian Sync, Syncthing, or Git/GitHub. Optional Claude Desktop MCP path. Multi-vault aware. Built by Nuno Tavares of Automated Marketer.",
   "author": {
     "name": "Nuno Tavares"
   }
