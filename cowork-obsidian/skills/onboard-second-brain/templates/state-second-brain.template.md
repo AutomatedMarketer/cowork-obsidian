@@ -37,7 +37,7 @@ second_brain_complete: false
 - obsidian installed: unknown
 - vault registered (external) OR scaffolded (scaffold) OR overlay created (overlay): false
 - vault path allow-listed in safe-zones.md: false
-- companion skills installed (obsidian:*): <true | false | declined>
+- companion skills installed (obsidian:*): false   # set to `true` (installed or already-installed) or `declined` after Phase 4 Step 5
 - first build run: false
 - weekly rhythm established: false
 - sync configured: false
