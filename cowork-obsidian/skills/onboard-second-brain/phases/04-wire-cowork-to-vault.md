@@ -165,7 +165,7 @@ These are **complementary, not competitive**: cowork-obsidian provides the *work
 Check whether the `obsidian:` skill pack is already installed:
 
 - **Mac/Linux:** `ls "$HOME/.claude/plugins/marketplaces/obsidian-skills" 2>/dev/null || ls "$HOME/.claude/plugins/cache/obsidian-skills" 2>/dev/null`
-- **Windows (PowerShell):** `Test-Path "$env:USERPROFILE\.claude\plugins\marketplaces\obsidian-skills"`
+- **Windows (PowerShell):** `(Test-Path "$env:USERPROFILE\.claude\plugins\marketplaces\obsidian-skills") -or (Test-Path "$env:USERPROFILE\.claude\plugins\cache\obsidian-skills")`
 
 If found → set `obsidian_companion_skills: already_installed` in state. Tell the user:
 
@@ -204,7 +204,7 @@ If user declines → set `obsidian_companion_skills: declined`. Tell them: *"Ski
 Update `_aibos/state-second-brain.md`:
 - `current_phase: 5`
 - `vault path allow-listed in safe-zones.md: true`
-- `companion skills installed (obsidian:*): <true | false | declined>` (from Step 5)
+- `companion skills installed (obsidian:*): true` (if Step 5 result is `installed` or `already_installed`) or `declined` (if user declined)
 - `obsidian_companion_skills: <installed | already_installed | declined>` (from Step 5)
 - `Phase 4 (wire cowork to vault): completed at <ISO timestamp>`
 
