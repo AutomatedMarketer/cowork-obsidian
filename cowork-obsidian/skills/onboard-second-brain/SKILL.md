@@ -1,15 +1,16 @@
 ---
 name: onboard-second-brain
-description: Walks the user through Project 04 — Second Brain in Obsidian. Triggers on "/onboard-second-brain", "start onboarding", "start second brain", "start the obsidian onboarding", "set up second brain", "set up obsidian vault", "install obsidian second brain", "build my second brain", "wire obsidian to cowork", "connect my existing obsidian vault", "begin second brain setup". v0.3.0 — branches between connect-existing-vault and create-new-vault paths. Auto-detects existing Obsidian vaults. Three vault modes (external / overlay / scaffold). Soft cowork-ai-os prerequisite (works standalone if not present). 8 phases including optional sync setup and optional Claude Desktop MCP. Pause-friendly. Reads state from `_aibos/state-second-brain.md` and resumes at the correct phase. After onboarding, the user runs `/open-vault` daily and `/second-brain` for the operations.
+description: Walks the user through Project 04 — Second Brain in Obsidian. Triggers on "/onboard-second-brain", "start onboarding", "start second brain", "start the obsidian onboarding", "set up second brain", "set up obsidian vault", "install obsidian second brain", "build my second brain", "wire obsidian to cowork", "connect my existing obsidian vault", "begin second brain setup". v0.4.0 — Phase 4 now also recommends installing the official `obsidian:` skill pack (markdown / bases / json-canvas / obsidian-cli / defuddle) so Cowork authors current Markdown/Bases/Canvas syntax. v0.3.0 added `/open-vault` daily-driver. v0.2.0 added branching between connect-existing-vault and create-new-vault paths. Auto-detects existing Obsidian vaults. Three vault modes (external / overlay / scaffold). Soft cowork-ai-os prerequisite (works standalone if not present). 8 phases including optional sync setup and optional Claude Desktop MCP. Pause-friendly. Reads state from `_aibos/state-second-brain.md` and resumes at the correct phase. After onboarding, the user runs `/open-vault` daily and `/second-brain` for the operations.
 ---
 
-# Onboard Second Brain — Install Skill (v0.2.0)
+# Onboard Second Brain — Install Skill (v0.4.0)
 
 You are walking the user through installing the cowork-obsidian plugin — wiring a local Obsidian vault to Claude Cowork. By the end, the user has:
 
 - An Obsidian vault wired to Cowork (connected from an existing vault, or scaffolded fresh)
 - The vault path(s) registered in `projects/second-brain/vaults.md` with the right `mode` (`external` / `overlay` / `scaffold`)
 - A safe-zones carve-out giving the `/second-brain` skill scoped read/write access to the vault
+- The official `obsidian:` skill pack installed (or declined) — gives Cowork the current Markdown / Bases / Canvas syntax for vault authoring
 - The three canonical prompts (`build`, `update`, `health-check`) tested and working
 - Optional sync across machines (Obsidian Sync / Syncthing / Git+GitHub)
 - Optional Claude Desktop MCP integration
@@ -114,6 +115,7 @@ After the last phase the user runs (Phase 5 if they skip 6 and 7, or 6, or 7) ve
 - **`cowork-ai-os` integration** is opt-in based on detection. If installed at v0.7.0+, we use its `safe-zones.md`. If not, we ship our own minimal version.
 - The `vaults.md` config we create here will be **read by future cowork-ai-os v0.8.0+** so `/morning-brief` and `/voice-writer` can optionally pull from the vault. That cross-skill wiring is deferred.
 - The `/second-brain` operational skill is mode-aware (reads `mode` field from `vaults.md`). It's the only skill that should write into vault folders. `/tidy-downloads` (from cowork-ai-os) will not touch the vault path because of the carve-out's scoping.
+- **The official `obsidian:` skill pack** (5 skills: `obsidian-markdown`, `obsidian-bases`, `json-canvas`, `obsidian-cli`, `defuddle`) is the recommended companion. Phase 4 Step 5 detects it and offers install if missing. cowork-obsidian provides the *workflow* layer; the official pack provides the *file-format intelligence*. When `/second-brain` authors a `.md` / `.base` / `.canvas` file in the vault, it should invoke the matching `obsidian:*` skill first so the syntax is current (Bases shipped in 2025 and keeps evolving — training-data knowledge of the format can be stale).
 
 ---
 
