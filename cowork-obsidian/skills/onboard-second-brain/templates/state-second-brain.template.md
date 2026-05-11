@@ -1,9 +1,9 @@
 # Second Brain — Install State
 
 project: second-brain
-version: v2 (P04 / cowork-obsidian v0.2.0)
+version: v3 (P04 / cowork-obsidian v0.4.0)
 plugin: cowork-obsidian
-plugin_version: 0.2.0
+plugin_version: 0.4.0
 started_at: <ISO timestamp>
 current_phase: 0
 second_brain_complete: false
@@ -12,6 +12,7 @@ second_brain_complete: false
 - cowork_ai_os: <detected | detected_old | not_detected>
 - cowork_ai_os_p01_complete: <true | false>
 - safe_zones_path: <existing | minimal_in_phase_4>
+- obsidian_companion_skills: <installed | already_installed | declined | not_checked>   # captured in Phase 4 Step 5
 
 ## Vault mode default (captured during Phase 0.5)
 - vault_mode_default: <external | overlay | scaffold>
@@ -36,6 +37,7 @@ second_brain_complete: false
 - obsidian installed: unknown
 - vault registered (external) OR scaffolded (scaffold) OR overlay created (overlay): false
 - vault path allow-listed in safe-zones.md: false
+- companion skills installed (obsidian:*): <true | false | declined>
 - first build run: false
 - weekly rhythm established: false
 - sync configured: false

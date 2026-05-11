@@ -146,14 +146,69 @@ If write fails:
 
 ---
 
+## Step 5 — Install the `obsidian:` file-format companion skills (recommended)
+
+Cowork can now read and write your vault. But to author the *right* Markdown / Bases / Canvas in 2026, it benefits from the **official `obsidian:` skill pack** — five skills maintained by the Obsidian team, MIT-licensed, ~27K GitHub stars. They teach Cowork the current file-format syntax:
+
+| Skill | Used for |
+|---|---|
+| `obsidian:obsidian-markdown` | Authoring `.md` (wikilinks, embeds, callouts, properties) |
+| `obsidian:obsidian-bases` | Authoring `.base` files (filters, formulas, views) |
+| `obsidian:json-canvas` | Authoring `.canvas` files |
+| `obsidian:obsidian-cli` | Talking to a running Obsidian instance |
+| `obsidian:defuddle` | URL → clean markdown for clippings |
+
+These are **complementary, not competitive**: cowork-obsidian provides the *workflow* layer (`/onboard-second-brain`, `/open-vault`, `/second-brain`); the official pack provides the *file-format intelligence*. The `/second-brain` skill will rely on these when authoring vault content.
+
+### Detect
+
+Check whether the `obsidian:` skill pack is already installed:
+
+- **Mac/Linux:** `ls "$HOME/.claude/plugins/marketplaces/obsidian-skills" 2>/dev/null || ls "$HOME/.claude/plugins/cache/obsidian-skills" 2>/dev/null`
+- **Windows (PowerShell):** `Test-Path "$env:USERPROFILE\.claude\plugins\marketplaces\obsidian-skills"`
+
+If found → set `obsidian_companion_skills: already_installed` in state. Tell the user:
+
+> *"You already have the official `obsidian:` skill pack installed. Cowork will use it automatically when authoring vault content. Skipping ahead."*
+
+If not found → offer install (below).
+
+### Offer install
+
+Tell the user:
+
+> *"Recommended: install the official `obsidian:` skill pack so Cowork knows the current Markdown / Bases / Canvas syntax. Maintained by the Obsidian team, MIT-licensed, free, ~27K GitHub stars.*
+>
+> *Install with two commands:*
+>
+> ```
+> /plugin marketplace add kepano/obsidian-skills
+> /plugin install obsidian@obsidian-skills
+> ```
+>
+> *Or skip — Cowork will still work, but it'll author from training-data knowledge of Obsidian, which can be stale (Bases shipped in 2025 and keeps evolving).*
+>
+> *Type `install obsidian-skills` for the install commands or `skip obsidian-skills` to defer."*
+
+If user installs → set `obsidian_companion_skills: installed`.
+If user declines → set `obsidian_companion_skills: declined`. Tell them: *"Skipped. You can install any time with the two commands above — re-run `/onboard-second-brain` later and Phase 4 will detect it."*
+
+### Why this matters (one-line rationale)
+
+> *"Without the official `obsidian:` pack, Cowork can write `.base` files with stale syntax that throws YAML errors when Obsidian opens them. With it, the syntax is current. Two minutes now saves debugging later."*
+
+---
+
 ## Update state and preview Phase 5
 
 Update `_aibos/state-second-brain.md`:
 - `current_phase: 5`
 - `vault path allow-listed in safe-zones.md: true`
+- `companion skills installed (obsidian:*): <true | false | declined>` (from Step 5)
+- `obsidian_companion_skills: <installed | already_installed | declined>` (from Step 5)
 - `Phase 4 (wire cowork to vault): completed at <ISO timestamp>`
 
-Append to `projects/second-brain/memory.md`: *"Phase 4 complete. Vault path allow-listed in safe-zones.md. Read test passed: [filename]. Write test passed: wiring-test.md (created and deleted)."*
+Append to `projects/second-brain/memory.md`: *"Phase 4 complete. Vault path allow-listed in safe-zones.md. Read test passed: [filename]. Write test passed: wiring-test.md (created and deleted). Companion skills: [installed | already_installed | declined]."*
 
 Tell user:
 

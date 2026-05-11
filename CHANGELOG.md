@@ -7,6 +7,33 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [0.4.0] — 2026-05-10
+
+### Added
+
+- **Phase 4 Step 5 — official `obsidian:` skill pack companion.** `/onboard-second-brain` Phase 4 now detects whether the official `obsidian:` skill pack is installed (5 skills: `obsidian-markdown`, `obsidian-bases`, `json-canvas`, `obsidian-cli`, `defuddle`). If present → notes it in state and moves on. If absent → offers the two-line install (`/plugin marketplace add kepano/obsidian-skills && /plugin install obsidian@obsidian-skills`) with a one-line rationale (Bases syntax shipped in 2025, training-data knowledge is unreliable). User can install or decline; either way Phase 4 completes.
+- **State file fields:** `obsidian_companion_skills: <installed | already_installed | declined | not_checked>` in the soft prereq snapshot, plus `companion skills installed (obsidian:*): <true | false | declined>` in the Configured artifacts section. State template version bumped `v2 → v3`.
+
+### Changed
+
+- **`/onboard-second-brain` SKILL.md** — version bumped to v0.4.0; description and "By the end" list updated to include the companion skill pack; Cross-skill coordination section adds a paragraph on the official `obsidian:` pack and explicitly frames the layering: cowork-obsidian provides the *workflow* layer, the official pack provides the *file-format intelligence*. The `/second-brain` skill is expected to invoke `obsidian:*` skills before authoring vault content.
+- **README — `What you get`** adds the companion-pack bullet between safe-zones and the three canonical prompts. Version badge bumped to 0.4.0.
+
+### Why this matters
+
+Cowork has filesystem access — it can author files in the vault — but without the official `obsidian:` pack it authors from training-data knowledge of Obsidian's file formats, which can be stale. Bases is the canonical example: the syntax shipped mid-2025 and continues to evolve; a `.base` file written from training-data knowledge can throw YAML errors on Obsidian open. Wikilinks, callouts, and Canvas have similar version drift. Two-minute install in Phase 4 eliminates the most common silent-failure mode of an AI-authored vault.
+
+The plugin still works without the companion pack (decline at the prompt). But the default Phase 4 path now offers it the moment Cowork demonstrates it can read and write the vault — the natural moment to add format intelligence.
+
+### Migration from v0.3.0
+
+- **Plugin install command unchanged:** `/plugin install cowork-obsidian@cowork-obsidian` still works.
+- **Existing slash commands unchanged:** `/onboard-second-brain`, `/open-vault`, `/second-brain` all behave the same. Phase 4 just has one extra step.
+- **State file migration is automatic.** If `/onboard-second-brain` resumes against a v0.3.0 state file, Phase 4 re-runs and adds the new field. Users who already completed install can re-run `/onboard-second-brain` — it will jump to Phase 4 Step 5 only, detect or install the pack, then mark complete.
+- **No new templates, no new phases.** Just one new step inside an existing phase.
+
+---
+
 ## [0.3.0] — 2026-05-09
 
 ### Added

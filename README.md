@@ -1,7 +1,7 @@
 # cowork-obsidian
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](./LICENSE)
-[![Version](https://img.shields.io/badge/version-0.3.0-brightgreen.svg?style=flat-square)](./CHANGELOG.md)
+[![Version](https://img.shields.io/badge/version-0.4.0-brightgreen.svg?style=flat-square)](./CHANGELOG.md)
 [![Platform: Mac · Windows · Linux](https://img.shields.io/badge/platform-Mac%20%C2%B7%20Windows%20%C2%B7%20Linux-blue.svg?style=flat-square)](#install)
 [![Built for Claude Cowork](https://img.shields.io/badge/built%20for-Claude%20Cowork-7C3AED.svg?style=flat-square)](https://claude.com/product/claude-code)
 
@@ -84,6 +84,7 @@ After ~70 minutes of guided install:
   - `scaffold` — you have no vault yet. We build the full life-area + raw/wiki/output structure for you.
 - **Your Cowork `about-me/` files** copied into each vault so identity is consistent everywhere
 - **A safe-zones carve-out** that gives the `/second-brain` skill scoped read/write access to your vault — and nothing else
+- **The official `obsidian:` skill pack** (5 skills — `obsidian-markdown`, `obsidian-bases`, `json-canvas`, `obsidian-cli`, `defuddle`) detected or installed in Phase 4 — gives Cowork the *current* Markdown / Bases / Canvas syntax so it authors valid files in your vault (Bases shipped in 2025 and keeps evolving; training-data knowledge is unreliable here). Skip if you already have it or prefer not.
 - **Three canonical prompts** (`build`, `update`, `health-check`) tested and ready to run forever
 - **Optional sync across machines** — Obsidian Sync ($5/mo, easiest), Syncthing (free, peer-to-peer), or Git/GitHub (free, version history)
 - **Optional Claude Desktop MCP** — let your Claude Desktop chat app see the vault too, with the GoHighLevel Mac install trap warnings baked in
