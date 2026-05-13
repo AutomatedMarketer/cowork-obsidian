@@ -1,9 +1,9 @@
 # Second Brain — Install State
 
 project: second-brain
-version: v3 (P04 / cowork-obsidian v0.4.0)
+version: v4 (P05 / cowork-obsidian v0.5.0)
 plugin: cowork-obsidian
-plugin_version: 0.4.0
+plugin_version: 0.5.0
 started_at: <ISO timestamp>
 current_phase: 0
 second_brain_complete: false

@@ -7,7 +7,8 @@
     {
       "name": "cowork-obsidian",
       "source": "./cowork-obsidian",
-      "description": "Wire Claude Cowork to a local Obsidian vault. Three skills install: /onboard-second-brain (one-time setup wizard), /open-vault (daily-driver — opens Obsidian + preps Cowork session), /second-brain (build / update / health-check / fold-back, mode-aware). Auto-detects existing vaults. Three modes (external / overlay / scaffold). Sync via Obsidian Sync, Syncthing, or Git/GitHub. Optional Claude Desktop MCP. Multi-vault aware. A knowledge base that compounds for years."
+      "version": "0.5.0",
+      "description": "Wire Claude Cowork to a local Obsidian vault as long-term memory. Three skills: /onboard-second-brain (8-phase install with vault-path safety check + hot.md scaffold + Filesystem MCP wiring by default), /open-vault (daily session starter that reads the hot cache and surfaces new raw-note nudges), /second-brain (5 ops: build, update, health-check, fold-back, refresh-hot). Auto-detects existing vaults; three modes (external / overlay / scaffold). Multi-vault aware. Inspired by Karpathy's LLM Wiki (Apr 2026). Built by Nuno Tavares of Automated Marketer."
     }
   ]
 }
