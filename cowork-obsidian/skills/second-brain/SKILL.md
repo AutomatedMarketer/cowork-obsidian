@@ -1,9 +1,10 @@
 ---
 name: second-brain
-description: Operate on a local Obsidian vault as the user's second brain. Triggers on "/second-brain", "build my wiki", "update my wiki", "refresh my wiki", "second brain health check", "audit my second brain", "fold my outputs back", "fold output into wiki", "what's in my second brain about X", "run my second brain", "process my raw notes", or any request to read, build, or maintain a wiki from raw notes in a configured Obsidian vault. v0.3.0 — mode-aware (external / overlay / scaffold). Reads `projects/second-brain/vaults.md` to find configured vault paths and modes. Three canonical operations — `build`, `update`, `health-check` — plus `fold-back`. When invoked with no command, offers a use-case picker tailored to the user's persona. For daily session startup, point users at `/open-vault` instead — that's the daily-driver command.
+version: 0.5.0
+description: Operational skill for the cowork-obsidian vault. Five ops: build (first-time setup, run once), update (weekly, adds new raw notes to wiki), health-check (monthly, finds problems), fold-back (quarterly, folds outputs back into wiki), refresh-hot (monthly, regenerates wiki/hot.md hot cache for the v0.5 four-tier memory model). Mode-aware (silent in scaffold/overlay, asks per-write in external). Use-case picker (6 personas) when invoked with no args. Triggers on "/second-brain", "build my wiki", "update my wiki", "refresh my wiki", "refresh hot cache", "regenerate hot.md", "second brain health check", "audit my second brain", "fold my outputs back", "fold output into wiki", "what's in my second brain about X", "run my second brain", "process my raw notes", or any request to read, build, or maintain a wiki from raw notes in a configured Obsidian vault. Reads `projects/second-brain/vaults.md` to find configured vault paths and modes. For daily session startup, point users at `/open-vault` instead — that's the daily-driver command.
 ---
 
-# Second Brain — Operate on the Vault (v0.2.0, mode-aware)
+# Second Brain — Operate on the Vault (v0.5.0, mode-aware, hot-cache-aware)
 
 You operate on the user's local Obsidian vault(s) using the **raw / wiki / output** model:
 
@@ -58,7 +59,7 @@ If the user invokes the skill with no command (e.g. just `/second-brain`, or *"h
 > *5. Writer / creator — half-formed ideas that find their way into finished pieces*
 > *6. Multi-business operator — work, business, health, personal in one indexed system*
 > *7. None of these — let me describe my role*
-> *8. Skip — I just want to run a command (`build`, `update`, `health-check`, `fold-back`)*
+> *8. Skip — I just want to run a command (`build`, `update`, `health-check`, `fold-back`, `refresh-hot`)*
 
 If 1–6: load the matching case study from `docs/use-cases.md`. Tailor suggestions:
 
@@ -94,7 +95,16 @@ Read `projects/second-brain/vaults.md`.
 
 ## Step 3 — Determine the command
 
-Three canonical commands the user picks from (or you infer from their phrasing):
+Five canonical commands the user picks from (or you infer from their phrasing):
+
+| Command | What it does | When to run |
+|---|---|---|
+| `/second-brain build` | First-pass wiki construction from existing raw notes | Once per life area, after `/onboard-second-brain` |
+| `/second-brain update` | Folds new raw notes into the existing wiki | Weekly |
+| `/second-brain health-check` | Flags contradictions, missing topics, stale pages, orphans | Monthly — first Saturday |
+| `/second-brain fold-back` | Absorbs a finished output back into the wiki | Quarterly, or after a major deliverable ships |
+| `/second-brain refresh-hot` | Regenerates the `wiki/hot.md` hot cache from the current wiki state | Monthly — alongside `health-check` |
+
 
 ### `build` — first-pass wiki construction
 
@@ -127,6 +137,41 @@ Output the report as a markdown summary the user reads, then asks you which item
 
 User names an output file. You read it, identify ideas not yet in the wiki, propose additions to wiki pages with `[[wikilinks]]` back to the output file. User approves per-change.
 
+### `refresh-hot` — regenerate the `wiki/hot.md` hot cache (any mode)
+
+**What it does:** Regenerates the `wiki/hot.md` hot cache (tier 2 of the v0.5 four-tier memory model: cold → hot → working → session) from the current state of the wiki. Prevents the hot cache from going stale as the wiki grows. The hot cache is what `/open-vault` reads at session start to surface what matters right now without re-scanning the entire wiki.
+
+**When to run:** Monthly, alongside `health-check` (first Saturday). Or any time the user feels `hot.md` is out of date — e.g. after a goal pivot, after finishing a major project, or after a `fold-back` run that significantly changed the active project landscape.
+
+**Mode behavior:**
+- **`scaffold` mode:** Reads every wiki page across every life area in `<vault>/<area>/wiki/`. Writes `<vault>/wiki/hot.md` (vault-root hot cache). Silent write inside the vault.
+- **`overlay` mode:** Reads `<overlay_root>/wiki/`. Writes `<overlay_root>/wiki/hot.md` (overlay-scoped hot cache). Silent write inside the overlay root.
+- **`external` mode:** Asks the user explicitly which folder(s) to read for wiki input and where to write `hot.md`. No silent folder creation. Default suggestion: *"I'll read every `.md` under `<wiki-paths-you-name>/` and write `hot.md` next to them. Confirm or specify a different output path."*
+
+**The prompt to run (after path resolution):**
+
+```
+Read every wiki page across every life area in <wiki-paths>.
+Identify:
+- The user's currently active goals (top 3-5, drawn from goal-type pages with status: active)
+- The user's currently in-flight projects (top 3-5)
+- The most recently updated topic pages (last 30 days)
+- Any HEALTH-CHECK contradictions still unresolved
+- The user's current "open questions" or unresolved threads
+
+Rewrite <hot.md path> following the structure in cowork-obsidian/templates/hot.md.template.
+Keep total length under ~500 tokens. Update the "Last refreshed" date to today (ISO).
+
+Do NOT delete or modify the existing wiki pages. Only rewrite hot.md.
+```
+
+**Output:** A fresh `hot.md` at the configured cache location. Append a one-line entry to `projects/second-brain/memory.md`: `YYYY-MM-DD: REFRESH-HOT run on <vault>, hot.md regenerated from N wiki pages`.
+
+**What this operation never does:**
+- Modifies any wiki page (read-only on the source corpus)
+- Touches `raw/` or `output/`
+- Creates new folders (in any mode — `hot.md` only goes where the existing wiki lives)
+
 ---
 
 ## Step 4 — Execute
@@ -136,6 +181,8 @@ For `build`: produce the wiki pages, ask permission before each batch of writes 
 For `update`: produce a summary first — *"I'll modify [N] existing pages and create [M] new ones. Show me the diffs?"* Walk through changes; user approves per-page or in bulk. **In `external` mode, always per-page.**
 
 For `health-check`: produce the report. Do not act on items until the user picks them.
+
+For `refresh-hot`: read the wiki corpus, draft the new `hot.md` content, show the user a diff against the current `hot.md` (if one exists) before writing. **In `external` mode, always confirm the write path explicitly.**
 
 ---
 
@@ -148,7 +195,7 @@ Append to `projects/second-brain/memory.md`:
 - **Vault:** <name> (<path>)
 - **Mode:** <external | overlay | scaffold>
 - **Life area / overlay root:** <area or path>
-- **Command:** <build | update | health-check | fold-back>
+- **Command:** <build | update | health-check | fold-back | refresh-hot>
 - **Pages affected:** <list of wiki pages created / modified>
 - **Outputs produced:** <list of output files created>
 - **Contradictions surfaced:** <count>
