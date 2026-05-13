@@ -8,7 +8,7 @@ last_updated: 2026-05-13
 
 # Install Walkthrough — What the Wizard Asks and Why
 
-When you run `/onboard-second-brain`, the wizard walks you through 9 short phases. Each phase asks a question or two. This guide tells you what the wizard will ask, why it asks, what a good answer looks like, and what you will see next. Read this once before you run the wizard. Then run it with this guide open in another tab.
+When you run `/onboard-second-brain`, the wizard walks you through 9 short phases. Each phase asks a question or two. This guide tells you what the wizard will ask, why it asks, what a good answer looks like, and what you will see next. Read this once before you run the wizard, then run it with this guide open in another tab.
 
 ## How long this takes
 
