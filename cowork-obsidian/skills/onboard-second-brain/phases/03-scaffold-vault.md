@@ -44,14 +44,18 @@ Capture. Then propose a default safe location:
 
 Confirm the path with the user.
 
-### Detect cloud-sync attempts
+### Vault-path safety check (REQUIRED before any write)
 
-If the user proposes a path that's inside a known cloud-sync folder, refuse and explain:
+Before scaffolding or connecting at the proposed path, follow the procedure in [`../checks/cloud-sync-detector.md`](../checks/cloud-sync-detector.md). Resolve symlinks. Check against the cloud-sync table. If a cloud-sync path is detected, refuse, explain in one sentence, and offer the safe default (`~/SecondBrain/` on Mac/Linux, `C:\Users\<username>\SecondBrain\` on Windows). Do not proceed past this check until the proposed path is confirmed local-only.
+
+After this phase completes, re-run the cloud-sync check on the FINAL vault path as a verify step.
+
+### Quick-reference table (the detector covers these and more)
 
 | Pattern | What it is | Why no |
 |---|---|---|
 | `~/Library/Mobile Documents/...` | iCloud Drive | Auto-sync corrupts Obsidian writes |
-| `~/Library/CloudStorage/...` | iCloud / OneDrive on Mac | Same |
+| `~/Library/CloudStorage/...` | iCloud / OneDrive / Google Drive on Mac | Same |
 | `~/OneDrive/` or `C:\Users\<u>\OneDrive\` | OneDrive | Same |
 | `~/Dropbox/` | Dropbox | Same |
 | `~/Google Drive/` or `G:\My Drive\` | Google Drive | Same |
@@ -126,6 +130,28 @@ Use the date prefix so notes sort chronologically.
 
 ---
 
+## Step 4.5 — Drop the hot.md hot cache
+
+After scaffolding the life-area `wiki/` folders, drop the contents of [`../templates/hot.md.template`](../templates/hot.md.template) into `<vault-root>/wiki/hot.md` (the vault-root `wiki/` shared cache, not nested inside any single life area).
+
+Interpolate the placeholders from `about-me/business-brain.md` if it exists in the cowork-ai-os workspace:
+
+- `{{about_me_one_liner}}` ← first paragraph of `about-me/about-me.md`
+- `{{current_focus_top_3}}` ← top 3 lines of `about-me/business-brain.md` "current focus" section
+- `{{offers_one_liner}}` ← `about-me/business-brain.md` "offers" section, one-line summary
+- `{{goal_1}}`, `{{goal_2}}`, `{{goal_3}}` ← top 3 from `about-me/business-brain.md` "90-day priorities"
+- `{{date}}` ← today's date in YYYY-MM-DD
+
+If `about-me/business-brain.md` does not exist (cowork-ai-os not yet onboarded), drop a generic version with empty placeholders and tell the user:
+
+> *"Run `/plugin install cowork-ai-os@cowork-ai-os` then `/onboard` for a richer hot cache. For now, you can fill `wiki/hot.md` in by hand."*
+
+Show the resulting `hot.md` in a code block so the user can sanity-check the interpolated values before saving. Save when approved.
+
+This file is the second brain's "always on" memory — Claude reads it at the start of every vault session to know who the user is and what they're working on without re-discovering it every time.
+
+---
+
 ## Step 5 — Point Obsidian at the new vault
 
 Tell the user:
@@ -165,6 +191,7 @@ Open the vault folder in File Explorer / Finder. Confirm:
 - `about-me/` exists with at least 3 files (About Me, Brand Voice, AI Working Style)
 - Each life area folder exists with exactly three subfolders: `raw/`, `wiki/`, `output/`
 - One life area has 2–3 `.md` files in `raw/`
+- `wiki/hot.md` exists at the vault root with interpolated content (or a generic version if cowork-ai-os wasn't installed)
 - No other top-level folders (the hidden `.obsidian/` folder Obsidian creates is fine — leave it)
 
 ### Check 2 — Obsidian shows the same thing
@@ -181,12 +208,14 @@ Open each `about-me/*.md` file. Confirm the content is real (not placeholders li
 
 Once all three checks pass for the first vault (subsequent vaults can be scaffolded later):
 
+**Verify-after-write:** re-run the cloud-sync detector ([`../checks/cloud-sync-detector.md`](../checks/cloud-sync-detector.md), Step 4) on the FINAL vault path. This catches any sneaky manual override the user typed mid-flow. If the verify fails, halt and surface it.
+
 1. Update `_aibos/state-second-brain.md`:
    - `current_phase: 4`
    - `first vault scaffolded: true`
    - In the vault inventory, fill in the real path for the first vault
    - `Phase 3 (scaffold first vault): completed at <ISO timestamp>`
-2. Append to `projects/second-brain/memory.md`: *"Phase 3 complete. First vault scaffolded at [path] with [N] life areas. about-me/ populated. [N] raw notes seeded in [life area]."*
+2. Append to `projects/second-brain/memory.md`: *"Phase 3 complete. First vault scaffolded at [path] with [N] life areas. about-me/ populated. [N] raw notes seeded in [life area]. wiki/hot.md hot cache dropped."*
 3. Tell user:
 
 > *"Phase 3 done. Vault built. Obsidian opens it cleanly.*
