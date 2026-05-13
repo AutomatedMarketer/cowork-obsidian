@@ -8,12 +8,13 @@ Each lesson has both formats:
 
 ---
 
-## The 4 docs (overview + 3 lessons)
+## The 5 docs (overview + 4 lessons)
 
 | File | Title | Time | When to use |
 |---|---|---|---|
 | [SOP-C04-00](./SOP-C04-00.md) | Why a Second Brain | 10 min read | Conceptual primer. Read first. |
 | [SOP-C04-01](./SOP-C04-01.md) | Setting Up Your Vault | 15–30 min | Install Obsidian, scaffold or connect a vault, wire to Cowork. |
+| [SOP-C04-01B](./SOP-C04-01B.md) | Install Walkthrough — What the Wizard Asks and Why | ~10 min read | Phase-by-phase reference. Open in another tab while running `/onboard-second-brain`. |
 | [SOP-C04-02](./SOP-C04-02.md) | How to Use It Day-to-Day | ~15 min | The daily loop: capture → wiki → output. With case studies by role. |
 | [SOP-C04-03](./SOP-C04-03.md) | Maintenance and Growing | ~15 min | Weekly rhythm, sync, common pitfalls, growing the vault over time. |
 
@@ -23,7 +24,7 @@ Total time: ~60 min hands-on if scaffolding fresh, less if connecting to an exis
 
 ## What changed from v0.3.0
 
-v0.3.0 had 6 SOPs (00–05). v0.5.0 consolidates to 4 (00–03), aligning with the workspace source-of-truth. The previous Lessons 4 (Weekly Rhythm + `/open-vault`) and 5 (Use Cases & Daily Workflow) were merged into Lessons 02 (day-to-day, including case studies) and 03 (maintenance, weekly rhythm, sync, pitfalls).
+v0.3.0 had 6 SOPs (00–05). v0.5.0 consolidates to 5 (00, 01, 01B, 02, 03), aligning with the workspace source-of-truth. The previous Lessons 4 (Weekly Rhythm + `/open-vault`) and 5 (Use Cases & Daily Workflow) were merged into Lessons 02 (day-to-day, including case studies) and 03 (maintenance, weekly rhythm, sync, pitfalls). SOP-C04-01B was added later as a focused phase-by-phase install walkthrough that complements SOP-C04-01.
 
 | v0.3.0 | v0.5.0 | Change |
 |---|---|---|
@@ -51,7 +52,7 @@ Then run:
 ```python
 import pypandoc
 
-sops = ['SOP-C04-00', 'SOP-C04-01', 'SOP-C04-02', 'SOP-C04-03']
+sops = ['SOP-C04-00', 'SOP-C04-01', 'SOP-C04-01B', 'SOP-C04-02', 'SOP-C04-03']
 
 for sop in sops:
     pypandoc.convert_file(
