@@ -264,7 +264,7 @@ Why VCInc cohort members and other solopreneurs / consultants set this up:
 
 Full case studies (~150 words each, with exact `raw/wiki/output` flow per persona): [docs/use-cases.md](./cowork-obsidian/docs/use-cases.md)
 
-For **concrete daily / weekly / monthly workflows per role** + the second-brain thinkers who informed the model (Julie Chenell, Tiago Forte, Andy Matuschak) + common first-month pitfalls: see [docs/sops/SOP-C04-05.md](./cowork-obsidian/docs/sops/SOP-C04-05.md) — Lesson 5 of the cohort SOPs.
+For **concrete daily workflows** see [docs/sops/SOP-C04-02.md](./cowork-obsidian/docs/sops/SOP-C04-02.md) — Lesson 02 of the cohort SOPs. For **the weekly rhythm + common pitfalls** see [docs/sops/SOP-C04-03.md](./cowork-obsidian/docs/sops/SOP-C04-03.md) — Lesson 03.
 
 The `/second-brain` skill itself can ask you which persona fits best and tailor its first-run suggestions to your role. Just run `/second-brain` with no arguments after onboarding.
 
