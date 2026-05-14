@@ -1,6 +1,6 @@
 # cowork-obsidian Architecture
 
-> Internal architecture doc. Voice: technical. Audience: contributors and integrators. For student-facing material see `docs/sops/`.
+> Internal architecture doc. Voice: technical. Audience: contributors and integrators.
 
 ## v0.5.0 — Memory Tiers and Filesystem MCP Default
 
@@ -53,7 +53,7 @@ Pre-v0.5 the repo shipped releases as v0.4.0 while `plugin.json` and `marketplac
 
 - **Stop-hook auto-extract-to-vault loop** (Cherny compounding pattern) → v0.6. Some students may find auto-writes-on-stop too magical/scary on first contact; ship after read-side hot.md pattern is proven.
 - **Custom Cowork MCP server** (`wiki_get`, `wikilink_resolve`, `vault_search` modes) → v0.7. Build only after observing student friction.
-- **Growth-tier skill bundling** (`/wiki-query`, `/save`, `/weekly-review`) → v0.6 or sibling plugin. Currently lives as personal skills in Nuno's vault, not as installable plugins. Surfaced in SOP-C04-03 as inspiration via `/level-up`.
+- **Growth-tier skill bundling** (`/wiki-query`, `/save`, `/weekly-review`) → v0.6 or sibling plugin. Currently lives as personal skills in Nuno's vault, not as installable plugins.
 
 ## See also
 

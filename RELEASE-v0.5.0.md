@@ -15,7 +15,10 @@ cowork-obsidian v0.5.0 is the install + scaffold + wiring that makes this practi
 - **Vault-path safety check** that refuses any path inside iCloud, OneDrive, Dropbox, or Google Drive — and offers to migrate an existing in-cloud vault to a safe local folder. Cloud sync corrupts Obsidian vaults; v0.5 makes that impossible to do by accident.
 - **`/second-brain refresh-hot`** — fifth operation. Monthly, it regenerates the `wiki/hot.md` cache from the current wiki state so the always-loaded memory stays accurate as your wiki grows.
 - **`/open-vault` got smarter.** It reads the hot cache + wiki index at session start, and tells you "you have N new raw notes since your last UPDATE — want me to run it?" The willpower tax is gone.
-- **All SOPs rewritten at 3rd-4th grade reading level.** Every lesson now leads with the *why* (Karpathy citation), opens with the four-tier memory model, and treats the install steps as a wizard concern (not student concern).
+
+## What's not in this release
+
+- **Course SOP content** (Karpathy-framed lessons on the second-brain methodology) lives privately in the course workspace, not in this public plugin repo. The plugin ships as a plugin — install it, run `/onboard-second-brain`, and the wizard handles the rest.
 
 ## Install / upgrade
 

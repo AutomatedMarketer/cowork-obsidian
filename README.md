@@ -62,7 +62,7 @@ After install, Cowork has **three new slash commands**. Memorize these — they'
 | **`/open-vault`** *(or `open my vault`)* | Daily-driver. Launches Obsidian to your vault AND preps the Cowork session. Reports vault status (last activity, new raw notes, what to do next). | **Every session.** |
 | **`/second-brain`** *(or `update my wiki`, `build my [area]`)* | Operational skill. Four operations: `build`, `update`, `health-check`, `fold-back`. Mode-aware. The skill knows the prompts — you just invoke. | **Weekly+.** |
 
-That's the whole surface. Three commands. The lessons in [`docs/sops/`](./cowork-obsidian/docs/sops/) walk you through using them.
+That's the whole surface. Three commands. After install, run `/onboard-second-brain` and the wizard walks you through them.
 
 ---
 
@@ -290,8 +290,6 @@ Why VCInc cohort members and other solopreneurs / consultants set this up:
 6. **Multi-role operators** — work + business + health + personal in one indexed system
 
 Full case studies (~150 words each, with exact `raw/wiki/output` flow per persona): [docs/use-cases.md](./cowork-obsidian/docs/use-cases.md)
-
-For **concrete daily workflows** see [docs/sops/SOP-C04-02.md](./cowork-obsidian/docs/sops/SOP-C04-02.md) — Lesson 02 of the cohort SOPs. For **the weekly rhythm + common pitfalls** see [docs/sops/SOP-C04-03.md](./cowork-obsidian/docs/sops/SOP-C04-03.md) — Lesson 03.
 
 The `/second-brain` skill itself can ask you which persona fits best and tailor its first-run suggestions to your role. Just run `/second-brain` with no arguments after onboarding.
 

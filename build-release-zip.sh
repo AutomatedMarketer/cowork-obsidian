@@ -54,6 +54,8 @@ zip -r "$ZIP_PATH" . \
   -x "*.swp" \
   -x "**/.git/*" \
   -x "**/node_modules/*" \
+  -x "docs/sops/*" \
+  -x "docs/sops" \
   >/dev/null
 
 echo ""

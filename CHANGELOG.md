@@ -16,7 +16,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **Filesystem MCP config template** (`templates/filesystem-mcp-config.json.template`) — wires Anthropic's official `@modelcontextprotocol/server-filesystem` to the vault.
 - **REFRESH-HOT operation** in `/second-brain` — regenerates `wiki/hot.md` from the current wiki state, prevents staleness.
 - **`/open-vault` reads hot cache + wiki index** at session start, surfaces "N new raw notes since last UPDATE" nudge.
-- **Karpathy "LLM Wiki" framing** in README and SOP-C04-00 with citation.
+- **Karpathy "LLM Wiki" framing** in README with citation.
 - **Internal architecture doc** at `cowork-obsidian/docs/architecture.md`.
 
 ### Changed
@@ -24,8 +24,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **`/onboard-second-brain` Phases 0.5 + 3** — vault-path safety check before any write (cloud-sync detection).
 - **`/onboard-second-brain` Phase 3** — drops pre-filled `wiki/hot.md` template post-scaffold.
 - **`/onboard-second-brain` Phase 7** — MCP path picker: Path A (Filesystem, default) or Path B (iansinnott, opt-in).
-- **SOPs consolidated to 4 lessons** matching the course-workspace source-of-truth, all rewritten at 3rd–4th-grade reading level.
 - **README, architecture.md** — refreshed for v0.5.
+
+### Removed
+
+- **Course SOP content removed from repo** (`docs/sops/` deleted) — these are private course material and don't belong in the public plugin repo. Course-workspace copies are unaffected.
 
 ### Fixed
 
