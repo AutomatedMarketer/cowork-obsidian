@@ -1,7 +1,7 @@
 # cowork-obsidian
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](./LICENSE)
-[![Version](https://img.shields.io/badge/version-0.4.0-brightgreen.svg?style=flat-square)](./CHANGELOG.md)
+[![Version](https://img.shields.io/badge/version-0.5.0-brightgreen.svg?style=flat-square)](./CHANGELOG.md)
 [![Platform: Mac · Windows · Linux](https://img.shields.io/badge/platform-Mac%20%C2%B7%20Windows%20%C2%B7%20Linux-blue.svg?style=flat-square)](#install)
 [![Built for Claude Cowork](https://img.shields.io/badge/built%20for-Claude%20Cowork-7C3AED.svg?style=flat-square)](https://claude.com/product/claude-code)
 
@@ -10,6 +10,33 @@ A [Claude Cowork](https://claude.com/product/claude-code) plugin that wires a lo
 > **Plain markdown files on your disk. Cowork reads them. Obsidian edits them. You own them forever.**
 
 Built by [Nuno Tavares](https://nunomtavares.com) for [VCInc](https://vcinc.com) cohort students and anyone who wants a knowledge base that compounds for years instead of a chatbot that forgets last Tuesday.
+
+---
+
+## Why this exists
+
+In April 2026, Andrej Karpathy published [LLM Wiki](https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f), a gist that crystallized the markdown-vault-as-second-brain pattern:
+
+> "Obsidian is the IDE, the LLM is the programmer, the wiki is the codebase. You rarely ever write or edit the wiki manually."
+
+Boris Cherny (Claude Code lead, Anthropic) writes the same idea differently:
+
+> "Anytime we see Claude do something incorrectly we add it to the CLAUDE.md, so Claude knows not to do it next time."
+
+Same pattern, two voices. Both point at the same thing: **a long-term memory the agent can reach into only when needed, persisted in plain markdown, version-controlled, vendor-neutral.** This plugin is the install + scaffold + wiring that makes that practical for Claude Cowork users.
+
+---
+
+## How memory works (the 4 tiers)
+
+| Tier | What | Where | Loaded when | ~Token cost |
+|---|---|---|---|---|
+| 1 | Identity | `about-me/` (cowork-ai-os) | Skills that need it | 300 |
+| 2 | Vault hot cache | `wiki/hot.md` | Start of any vault session | 500 |
+| 3 | Vault index | `wiki/_index.md` | When a query needs to pick a topic | 1,000 |
+| 4 | Full wiki pages | `wiki/<area>/<topic>.md` | Only when explicitly named or matched | 100–300 each |
+
+A typical vault query touches ~3,500 tokens, not 50,000. The vault stops being a folder and becomes Cowork's long-term memory.
 
 ---
 
@@ -35,7 +62,7 @@ After install, Cowork has **three new slash commands**. Memorize these — they'
 | **`/open-vault`** *(or `open my vault`)* | Daily-driver. Launches Obsidian to your vault AND preps the Cowork session. Reports vault status (last activity, new raw notes, what to do next). | **Every session.** |
 | **`/second-brain`** *(or `update my wiki`, `build my [area]`)* | Operational skill. Four operations: `build`, `update`, `health-check`, `fold-back`. Mode-aware. The skill knows the prompts — you just invoke. | **Weekly+.** |
 
-That's the whole surface. Three commands. The lessons in [`docs/sops/`](./cowork-obsidian/docs/sops/) walk you through using them.
+That's the whole surface. Three commands. After install, run `/onboard-second-brain` and the wizard walks you through them.
 
 ---
 
@@ -263,8 +290,6 @@ Why VCInc cohort members and other solopreneurs / consultants set this up:
 6. **Multi-role operators** — work + business + health + personal in one indexed system
 
 Full case studies (~150 words each, with exact `raw/wiki/output` flow per persona): [docs/use-cases.md](./cowork-obsidian/docs/use-cases.md)
-
-For **concrete daily / weekly / monthly workflows per role** + the second-brain thinkers who informed the model (Julie Chenell, Tiago Forte, Andy Matuschak) + common first-month pitfalls: see [docs/sops/SOP-C04-05.md](./cowork-obsidian/docs/sops/SOP-C04-05.md) — Lesson 5 of the cohort SOPs.
 
 The `/second-brain` skill itself can ask you which persona fits best and tailor its first-run suggestions to your role. Just run `/second-brain` with no arguments after onboarding.
 

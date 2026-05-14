@@ -1,0 +1,29 @@
+# Hot Cache
+
+> This file is your second brain's "always on" memory. Claude reads it at the start of every vault session. Keep it small (~500 tokens). Run `/second-brain refresh-hot` once a month to update it.
+
+## Who I am right now
+
+{{about_me_one_liner}}
+
+## What I'm working on
+
+{{current_focus_top_3}}
+
+## What I sell
+
+{{offers_one_liner}}
+
+## Active goals (top 3)
+
+- {{goal_1}}
+- {{goal_2}}
+- {{goal_3}}
+
+## Open questions / things I'm unsure about
+
+(Add 3–5 things you're noodling on. Update as you learn.)
+
+## Last refreshed
+
+{{date}} — by `/second-brain refresh-hot`
