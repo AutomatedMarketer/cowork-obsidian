@@ -3,6 +3,7 @@
   "owner": {
     "name": "Nuno Tavares"
   },
+  "description": "Wire Claude Cowork to a local Obsidian vault as long-term memory. Three skills: /onboard-second-brain (8-phase install), /open-vault (daily session starter), /second-brain (5 ops: build/update/health-check/fold-back/refresh-hot). Auto-detects vaults, multi-vault aware, three install modes.",
   "plugins": [
     {
       "name": "cowork-obsidian",
