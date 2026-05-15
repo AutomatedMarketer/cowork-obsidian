@@ -1,7 +1,6 @@
 ---
 name: open-vault
-version: 0.5.0
-description: Daily session opener for the cowork-obsidian vault. Reads vaults.md, picks default vault (asks if multiple), reports status (mode, last activity, new raw notes since last update). v0.5 adds: reads wiki/hot.md (tier-2 memory) and wiki/_index.md (tier-3 catalog) at session start; surfaces a per-life-area "N new raw notes since last UPDATE" nudge. Launches Obsidian via obsidian://open?vault=<name>. Read-only — never auto-runs build/update.
+description: "Daily session opener for the cowork-obsidian vault. Reads vaults.md, picks default vault (asks if multiple), reports status (mode, last activity, new raw notes since last update). v0.5 adds: reads wiki/hot.md (tier-2 memory) and wiki/_index.md (tier-3 catalog) at session start; surfaces a per-life-area 'N new raw notes since last UPDATE' nudge. Launches Obsidian via obsidian://open?vault=<name>. Read-only — never auto-runs build/update."
 ---
 
 # Open Vault — Daily-Driver Session Starter
