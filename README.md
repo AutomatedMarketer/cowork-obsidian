@@ -3,9 +3,9 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](./LICENSE)
 [![Version](https://img.shields.io/badge/version-0.5.0-brightgreen.svg?style=flat-square)](./CHANGELOG.md)
 [![Platform: Mac · Windows · Linux](https://img.shields.io/badge/platform-Mac%20%C2%B7%20Windows%20%C2%B7%20Linux-blue.svg?style=flat-square)](#install)
-[![Built for Claude Cowork](https://img.shields.io/badge/built%20for-Claude%20Cowork-7C3AED.svg?style=flat-square)](https://claude.com/product/claude-code)
+[![Built for Claude Cowork](https://img.shields.io/badge/built%20for-Claude%20Cowork-7C3AED.svg?style=flat-square)](https://claude.com/product/cowork)
 
-A [Claude Cowork](https://claude.com/product/claude-code) plugin (also runs in Claude Code) that wires a local-first **Obsidian second brain** directly to Cowork — connect to a vault you already have, or scaffold a brand-new one. Plus optional sync across your machines.
+A [Claude Cowork](https://claude.com/product/cowork) plugin (also runs in [Claude Code](https://claude.com/product/claude-code)) that wires a local-first **Obsidian second brain** directly to Cowork — connect to a vault you already have, or scaffold a brand-new one. Plus optional sync across your machines.
 
 > **Plain markdown files on your disk. Cowork reads them. Obsidian edits them. You own them forever.**
 
@@ -233,28 +233,31 @@ See the [sample multi-vault config](./cowork-obsidian/skills/onboard-second-brai
 
 ### Mac
 
-## ✅ Mac install (recommended): zip upload
+## 🍎 ✅ Mac install (recommended): zip upload
 
-This is the recommended install path for all Mac users. It bypasses Anthropic's open Cowork-on-macOS bugs ([#26951](https://github.com/anthropics/claude-code/issues/26951), [#28125](https://github.com/anthropics/claude-code/issues/28125)) and works on every Cowork build that supports plugin uploads. Workaround confirmed by users in [#39400](https://github.com/anthropics/claude-code/issues/39400).
+This is the recommended install path for all Mac users. It bypasses Anthropic's open Cowork-on-macOS bugs (🚧 [#26951](https://github.com/anthropics/claude-code/issues/26951), 🚧 [#28125](https://github.com/anthropics/claude-code/issues/28125)) and works on every Cowork build that supports plugin uploads. Workaround confirmed by users in [#39400](https://github.com/anthropics/claude-code/issues/39400).
 
-1. Download the latest **`cowork-obsidian-v0.5.0.zip`** from the [Releases page](https://github.com/AutomatedMarketer/cowork-obsidian/releases/latest). **Don't extract it.** Keep the file as a single `.zip`.
+### ⏱️ 6 steps, ~30 seconds
 
-   > ⚠️ **Do NOT use the green "Download ZIP" button on the repo's main page.** That button wraps the repo in an outer folder (`cowork-obsidian-main/`), which double-nests the plugin and breaks Cowork's validator. Always grab the zip from the **Releases page → Assets** section.
-2. Open Claude Cowork (the middle tab in Claude Desktop).
-3. Go to **Customize** → **Browse plugins** → look for the option to **upload a custom plugin file**
-   > *Menu wording may vary slightly between Cowork versions — look for an "Upload", "Custom plugin", or "From file" option.*
-4. Drag in the zip. Wait for confirmation.
-5. **Open a brand new Cowork task** (skills load on session start, not retroactively).
+1. **📦 Download** the latest **`cowork-obsidian-v0.5.0.zip`** (or `cowork-obsidian.zip`) from the [**Releases page → Assets**](https://github.com/AutomatedMarketer/cowork-obsidian/releases/latest). **Don't extract it.** Keep the file as a single `.zip`.
+   > ⚠️ **Important:** download the zip from the **Releases page**, NOT the green **❌ Download ZIP** button at the top of the repo page. That button wraps the repo in an outer folder (`cowork-obsidian-main/`) which double-nests the plugin and breaks Cowork's validator.
+2. **⚙️ Open Claude Cowork** (the middle tab in Claude Desktop) → click your name (top right) → **Settings**.
+3. **🔌 Customize → Browse plugins** → look for the option to **upload a custom plugin file**.
+   > 💡 Menu wording varies slightly between Cowork versions — look for "Upload", "Custom plugin", or "From file".
+4. **📤 Drag in the zip.** Wait for confirmation.
+5. **🚀 Open a brand new Cowork task** (skills load on session start, not retroactively).
 6. Type `/onboard-second-brain` and follow the wizard.
 
-> **Why is this the recommended Mac path?** Anthropic closed [#27196](https://github.com/anthropics/claude-code/issues/27196) ("All Anthropic plugins fail in Cowork on macOS") as **not planned** — they don't currently intend to fix the marketplace path on Mac. The zip-upload path is effectively the supported install method on macOS going forward.
+> 💡 **Why this is the recommended Mac path:** Anthropic closed [#27196](https://github.com/anthropics/claude-code/issues/27196) ("All Anthropic plugins fail in Cowork on macOS") as **not planned** — they don't currently intend to fix the marketplace path on Mac. The zip-upload path is effectively the supported install method on macOS going forward.
 
-| Issue | Fix |
+### 🐛 Troubleshooting
+
+| Symptom | What to do |
 |---|---|
-| Can't find "Upload" / "Custom plugin" option | Look for "From file" / "Local plugin" / "Add manually". If genuinely absent, your Cowork version is older than the upload feature — quit, update Claude Desktop, relaunch. |
-| Upload rejects the file | Confirm the file extension is `.zip` (not `.plugin`). Re-download directly from the Release page; don't rename. |
-| Plugin uploads but `/onboard-second-brain` does nothing | Open a **brand new** Cowork task. Skills load on session start, not retroactively. |
-| Plugin disappears after restart | That's [#38429](https://github.com/anthropics/claude-code/issues/38429) — Anthropic-side persistence bug. Re-upload the zip after restart. |
+| 🔍 Can't find "Upload" / "Custom plugin" option | Look for "From file" / "Local plugin" / "Add manually". If genuinely absent, your Cowork version is older than the upload feature — 🔄 quit, update Claude Desktop, relaunch. |
+| 📄 Upload rejects the file | Confirm the file extension is `.zip` (not `.plugin`). Re-download directly from the [Releases page](https://github.com/AutomatedMarketer/cowork-obsidian/releases/latest); don't rename. |
+| 🚫 Plugin uploads but `/onboard-second-brain` does nothing | Open a **brand new** Cowork task. Skills load on session start, not retroactively. |
+| 👻 Plugin disappears after restart | That's 🚧 [#38429](https://github.com/anthropics/claude-code/issues/38429) — Anthropic-side persistence bug. 🔄 Re-upload the zip after restart. |
 
 ### Windows
 
