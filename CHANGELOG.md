@@ -7,6 +7,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [0.5.1] — 2026-06-03 — "Documentation Cleanup for Course Launch"
+
+### Changed
+
+- **Phase count corrected** — `onboard-second-brain/SKILL.md` frontmatter description and "phases at a glance" heading now correctly say **9-phase** (matches the 9 phase files on disk and the 9-row table in the at-a-glance section). README install summary + slash command table also updated from "8 phases" to "9 phases".
+- **README + second-brain SKILL.md + use-cases.md** — removed an external attribution on the raw/wiki/output framing. The mental model itself is unchanged; just the attribution line is removed. The framing now reads: *"There's a human in raw, a robot in wiki, and a human AND a robot in output."*
+
+### Notes
+
+- No code changes. Documentation accuracy patch ahead of the Claude Co-Work workshop launch.
+- All other v0.5.0 features (hot cache, cloud-sync detector, Filesystem MCP default, REFRESH-HOT operation, `/open-vault`) unchanged.
+
+---
+
 ## [0.5.0] — 2026-05-13 — "Memory Tiers and Filesystem MCP Default"
 
 ### Added

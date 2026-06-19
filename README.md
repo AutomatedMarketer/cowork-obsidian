@@ -1,7 +1,7 @@
 # cowork-obsidian
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](./LICENSE)
-[![Version](https://img.shields.io/badge/version-0.5.0-brightgreen.svg?style=flat-square)](./CHANGELOG.md)
+[![Version](https://img.shields.io/badge/version-0.5.1-brightgreen.svg?style=flat-square)](./CHANGELOG.md)
 [![Platform: Mac · Windows · Linux](https://img.shields.io/badge/platform-Mac%20%C2%B7%20Windows%20%C2%B7%20Linux-blue.svg?style=flat-square)](#install)
 [![Built for Claude Cowork](https://img.shields.io/badge/built%20for-Claude%20Cowork-7C3AED.svg?style=flat-square)](https://claude.com/product/cowork)
 
@@ -58,7 +58,7 @@ After install, Cowork has **three new slash commands**. Memorize these — they'
 
 | Command | What it does | When |
 |---|---|---|
-| **`/onboard-second-brain`** *(or `start onboarding`)* | First-time setup. 8-phase wizard. Auto-detects existing vaults or scaffolds fresh ones. Wires Cowork. Optional sync setup. Optional Claude Desktop MCP. | **Once.** |
+| **`/onboard-second-brain`** *(or `start onboarding`)* | First-time setup. 9-phase wizard. Auto-detects existing vaults or scaffolds fresh ones. Wires Cowork. Optional sync setup. Optional Claude Desktop MCP. | **Once.** |
 | **`/open-vault`** *(or `open my vault`)* | Daily-driver. Launches Obsidian to your vault AND preps the Cowork session. Reports vault status (last activity, new raw notes, what to do next). | **Every session.** |
 | **`/second-brain`** *(or `update my wiki`, `build my [area]`)* | Operational skill. Four operations: `build`, `update`, `health-check`, `fold-back`. Mode-aware. The skill knows the prompts — you just invoke. | **Weekly+.** |
 
@@ -134,7 +134,7 @@ There are two different Claude products. They connect to your vault two differen
 
 ## The install at a glance
 
-8 phases, ~70 minutes, fully pause-friendly (less if you're connecting to an existing vault). State persists at `_aibos/state-second-brain.md`. Resume any time with `/onboard-second-brain` (or `start onboarding`).
+9 phases, ~70 minutes, fully pause-friendly (less if you're connecting to an existing vault). State persists at `_aibos/state-second-brain.md`. Resume any time with `/onboard-second-brain` (or `start onboarding`).
 
 | # | Phase | Time |
 |---|---|---|
@@ -182,7 +182,7 @@ See [the prompts reference](./cowork-obsidian/skills/onboard-second-brain/templa
 | `wiki/` | **Claude only** | Short, focused, cross-linked pages (one topic per page) — your distilled understanding |
 | `output/` | **Both** | Finished deliverables — strategy docs, client guides, frameworks |
 
-The framing (Julie Chenell): *"There's a human in raw, a robot in wiki, and a human AND a robot in output."*
+The mental model: **There's a human in raw, a robot in wiki, and a human AND a robot in output.**
 
 Over time, raw fills with your thinking. Wiki gets richer. Output accumulates real deliverables. Every Cowork session becomes sharper because Cowork can read everything you've ever written — without you re-uploading anything.
 

@@ -8,7 +8,7 @@ A second brain in Obsidian + Claude Cowork is a thinking system, not a productiv
    - **Someone else's servers** — if pricing, terms, or availability change, your second brain moves with them or vanishes.
 2. **What do I do with it once it's set up?** You write into a `raw/` drawer freely. Claude builds and maintains a clean `wiki/` from what's in raw. You and Claude collaborate on real deliverables in `output/`. Then you re-run three prompts on a weekly rhythm — `build`, `update`, `health-check` — for years.
 
-Julie Chenell's framing: *"There's a human in raw, a robot in wiki, and a human AND a robot in output."*
+The mental model: **There's a human in raw, a robot in wiki, and a human AND a robot in output.**
 
 The result: a thinking apparatus that compounds for years instead of a chatbot that forgets last Tuesday.
 

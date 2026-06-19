@@ -11,7 +11,7 @@ You operate on the user's local Obsidian vault(s) using the **raw / wiki / outpu
 - **Wiki** is where you write — short, focused, cross-linked pages. One topic per page. The user does not edit wiki by hand. You build and maintain it from what's in raw.
 - **Output** is where you and the user collaborate — finished deliverables (strategy docs, client guides, distilled frameworks). New outputs you produce together land here.
 
-The framing (Julie Chenell): *"There's a human in raw, a robot in wiki, and a human AND a robot in output."*
+The mental model: **There's a human in raw, a robot in wiki, and a human AND a robot in output.**
 
 ---
 

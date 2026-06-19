@@ -1,9 +1,9 @@
 ---
 name: onboard-second-brain
-description: "8-phase install wizard for the Obsidian-as-second-brain pattern. Scaffolds raw/wiki/output, drops a hot.md hot-cache, wires Claude Desktop to the vault via the Anthropic Filesystem MCP (default) or iansinnott's Obsidian Claude Code MCP (opt-in). Vault-path safety check refuses cloud-sync paths. Resumable via state.md. Triggers on '/onboard-second-brain', 'start onboarding', 'start second brain', 'start the obsidian onboarding', 'set up second brain', 'set up obsidian vault', 'install obsidian second brain', 'build my second brain', 'wire obsidian to cowork', 'connect my existing obsidian vault', 'begin second brain setup'. v0.5.0 — vault-path safety check (cloud-sync detector) runs BEFORE any write in Phase 0.5 / Phase 3; Phase 3 now drops a pre-filled `wiki/hot.md` hot-cache (interpolated from `about-me/business-brain.md` if present); Phase 7 flips MCP defaults — Path A = Anthropic Filesystem MCP (1 min, default), Path B = iansinnott bridge (3 min more, sees current open note). v0.4.0 — Phase 4 now also recommends installing the official `obsidian:` skill pack. v0.3.0 added `/open-vault` daily-driver. v0.2.0 added branching between connect-existing-vault and create-new-vault paths. Auto-detects existing Obsidian vaults. Three vault modes (external / overlay / scaffold). Soft cowork-ai-os prerequisite. Pause-friendly. Reads state from `_aibos/state-second-brain.md` and resumes at the correct phase. After onboarding, the user runs `/open-vault` daily and `/second-brain` for the operations."
+description: "9-phase install wizard for the Obsidian-as-second-brain pattern. Scaffolds raw/wiki/output, drops a hot.md hot-cache, wires Claude Desktop to the vault via the Anthropic Filesystem MCP (default) or iansinnott's Obsidian Claude Code MCP (opt-in). Vault-path safety check refuses cloud-sync paths. Resumable via state.md. Triggers on '/onboard-second-brain', 'start onboarding', 'start second brain', 'start the obsidian onboarding', 'set up second brain', 'set up obsidian vault', 'install obsidian second brain', 'build my second brain', 'wire obsidian to cowork', 'connect my existing obsidian vault', 'begin second brain setup'. v0.5.0 — vault-path safety check (cloud-sync detector) runs BEFORE any write in Phase 0.5 / Phase 3; Phase 3 now drops a pre-filled `wiki/hot.md` hot-cache (interpolated from `about-me/business-brain.md` if present); Phase 7 flips MCP defaults — Path A = Anthropic Filesystem MCP (1 min, default), Path B = iansinnott bridge (3 min more, sees current open note). v0.4.0 — Phase 4 now also recommends installing the official `obsidian:` skill pack. v0.3.0 added `/open-vault` daily-driver. v0.2.0 added branching between connect-existing-vault and create-new-vault paths. Auto-detects existing Obsidian vaults. Three vault modes (external / overlay / scaffold). Soft cowork-ai-os prerequisite. Pause-friendly. Reads state from `_aibos/state-second-brain.md` and resumes at the correct phase. After onboarding, the user runs `/open-vault` daily and `/second-brain` for the operations."
 ---
 
-# Onboard Second Brain — Install Skill (v0.5.0)
+# Onboard Second Brain — Install Skill (v0.5.1)
 
 You are walking the user through installing the cowork-obsidian plugin — wiring a local Obsidian vault to Claude Cowork. By the end, the user has:
 
@@ -92,7 +92,7 @@ After the last phase the user runs (Phase 5 if they skip 6 and 7, or 6, or 7) ve
 
 ---
 
-## The 8 phases at a glance
+## The 9 phases at a glance
 
 | Phase | What it does | Time | Required? |
 |---|---|---|---|
