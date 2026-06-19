@@ -9,7 +9,7 @@ A [Claude Cowork](https://claude.com/product/cowork) plugin (also runs in [Claud
 
 > **Plain markdown files on your disk. Cowork reads them. Obsidian edits them. You own them forever.**
 
-Built by [Nuno Tavares](https://nunomtavares.com) for [VCInc](https://vcinc.com) cohort students and anyone who wants a knowledge base that compounds for years instead of a chatbot that forgets last Tuesday.
+Built by [Nuno Tavares](https://nunomtavares.com) for [VCInc](https://vcinc.ai) cohort students and anyone who wants a knowledge base that compounds for years instead of a chatbot that forgets last Tuesday.
 
 ---
 
@@ -338,7 +338,7 @@ Cohort students using both: install `cowork-ai-os` first (Project 01: Core Setup
 
 ## Curriculum
 
-Project 04 maps 1:1 to a curriculum module at [vcinc.com](https://vcinc.com) for VCI cohort members. Each phase of the install corresponds to a lesson in the cohort.
+Project 04 maps 1:1 to a curriculum module at [vcinc.ai](https://vcinc.ai) for VCI cohort members. Each phase of the install corresponds to a lesson in the cohort.
 
 ---
 

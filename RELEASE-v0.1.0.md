@@ -134,7 +134,7 @@ If you don't have `/onboard-file-organization` already run, Phase 0 offers a "mi
 
 ## Curriculum
 
-Project 04 — Second Brain in Obsidian — maps 1:1 to a module at [vcinc.com](https://vcinc.com). Each phase of the install corresponds to a cohort lesson.
+Project 04 — Second Brain in Obsidian — maps 1:1 to a module at [vcinc.ai](https://vcinc.ai). Each phase of the install corresponds to a cohort lesson.
 
 ---
 
@@ -152,4 +152,4 @@ Project 04 — Second Brain in Obsidian — maps 1:1 to a module at [vcinc.com](
 
 - Newsletter: [automatedmarketer.net](https://automatedmarketer.net)
 - YouTube: [@AutomatedMarketer](https://youtube.com/@AutomatedMarketer)
-- VCI cohort: [vcinc.com](https://vcinc.com)
+- VCI cohort: [vcinc.ai](https://vcinc.ai)
